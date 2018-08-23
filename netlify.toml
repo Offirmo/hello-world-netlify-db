@@ -1,0 +1,11 @@
+# Interesting links: https://www.netlify.com/docs/continuous-deployment/
+
+# Global settings applied to the whole site.
+# “publish” is the directory to publish (relative to root of your repo),
+# “command” is your build command,
+[build]
+	publish = "public"
+	functions = "./functions"
+	command = "yarn build"
+[build.environment]
+	VARIABLE = "value"

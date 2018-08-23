@@ -1,0 +1,31 @@
+{
+	"name": "hello-world-netlify-db",
+	"version": "0.0.1",
+	"description": "Testing Netlify's identity coupled to a DB",
+	"main": "index.js",
+	"repository": "https://github.com/Offirmo/hello-world-netlify-db.git",
+	"author": "Offirmo <offirmo.net@gmail.com>",
+	"license": "Unlicense",
+	"private": true,
+	"scripts": {
+		"build": "netlify-lambda build ./src/functions",
+		"start": "netlify-lambda serve ./src/functions",
+		"fauna": "fauna",
+		"spike": "node spikes/crud-tutorial/index.js"
+	},
+	"proxy": {
+		"/.netlify/functions": {
+			"target": "http://localhost:9000",
+			"pathRewrite": {
+				"^/\\.netlify/functions": ""
+			}
+		}
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"fauna-shell": "^0.5.0",
+		"faunadb": "^2.5.0",
+		"netlify-identity-widget": "^1.4.14",
+		"netlify-lambda": "^0.4.0"
+	}
+}
